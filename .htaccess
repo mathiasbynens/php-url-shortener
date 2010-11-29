@@ -1,3 +1,4 @@
 RewriteEngine On
 RewriteBase /
-RewriteRule ^(.*)? index.php?$1 [L,NC]
+RewriteRule ^shorten/(.*)$ shorten-url.php?url=$1 [L]
+RewriteRule ^([a-z]*)$ index.php?slug=$1 [L]

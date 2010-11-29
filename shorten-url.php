@@ -7,7 +7,7 @@ header('Content-Type: text/plain;charset=UTF-8');
 $db = new mysqli(MYSQLI_HOST, MYSQLI_USER, MYSQLI_PASSWORD, MYSQLI_DATABASE);
 $db->query('SET NAMES "utf8"');
 
-$url = $db->real_escape_string(urldecode(trim($_SERVER['QUERY_STRING'])));
+$url = $db->real_escape_string(urldecode(trim($_GET['url'])));
 
 if (in_array($url, array('', 'about:blank', 'undefined', 'http://localhost/'))) {
  die('Enter a URL');
