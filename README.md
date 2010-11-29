@@ -2,9 +2,9 @@
 
 ## Installation
 
-1) Download the source code as located within this repository, and upload it to your web server.
-2) Use `database.sql` to create the `redirect` table in a database of choice.
-3) Edit `config.php` and enter your database credentials.
+1) Download the source code as located within this repository, and upload it to your web server.  
+2) Use `database.sql` to create the `redirect` table in a database of choice.  
+3) Edit `config.php` and enter your database credentials.  
 
 ## Features
 
