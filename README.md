@@ -16,6 +16,7 @@
 * Doesn’t create multiple short URLs when you try to shorten the same URL. In this case, the script will simply return the existing short URL for that long URL.
 * DRY, minimal code.
 * Correct, semantic use of the available HTTP status codes.
+* Can be used with Twitter for iPhone. Just go to Settings › Services › URL Shortening › Custom… and enter `http://yourshortener.ext/shorten/%@`.
 
 ## Favelets / Bookmarklets
 
