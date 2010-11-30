@@ -16,16 +16,16 @@
 * Doesn’t create multiple short URLs when you try to shorten the same URL. In this case, the script will simply return the existing short URL for that long URL.
 * DRY, minimal code.
 * Correct, semantic use of the available HTTP status codes.
-* Can be used with Twitter for iPhone. Just go to _Settings_ › _Services_ › _URL Shortening_ › _Custom…_ and enter `http://yourshortener.ext/shorten/%@`.
+* Can be used with Twitter for iPhone. Just go to _Settings_ › _Services_ › _URL Shortening_ › _Custom…_ and enter `http://yourshortener.ext/shorten-url.php?%@`.
 
 ## Favelets / Bookmarklets
 
 ### Prompt
 
-    javascript:(function(){var%20q=prompt('URL:');if(q){document.location='http://yourshortener.ext/shorten/'+encodeURIComponent(q)}})();
+    javascript:(function(){var%20q=prompt('URL:');if(q){document.location='http://yourshortener.ext/shorten-url.php?'+encodeURIComponent(q)}})();
 
 ### Shorten this URL
 
-    javascript:(function(){document.location='http://yourshortener.ext/shorten/'+encodeURIComponent(location.href)})();
+    javascript:(function(){document.location='http://yourshortener.ext/shorten-url.php?'+encodeURIComponent(location.href)})();
 
 _— [Mathias](http://mathiasbynens.be/)_

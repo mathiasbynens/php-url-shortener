@@ -4,13 +4,10 @@ require('config.php');
 
 header('Content-Type: text/plain;charset=UTF-8');
 
-$db = new mysqli(MYSQLI_HOST, MYSQLI_USER, MYSQLI_PASSWORD, MYSQLI_DATABASE);
-$db->query('SET NAMES "utf8"');
-
-$url = $db->real_escape_string(urldecode(trim($_GET['url'])));
+$url = urldecode(trim($_SERVER['QUERY_STRING']));
 
 if (in_array($url, array('', 'about:blank', 'undefined', 'http://localhost/'))) {
- die('Enter a URL');
+ die('Enter a URL.');
 }
 
 function nextLetter(&$str) {
@@ -29,6 +26,11 @@ function getNextShortURL($s) {
  nextLetter($a[$c]);
  return implode($a);
 }
+
+$db = new mysqli(MYSQLI_HOST, MYSQLI_USER, MYSQLI_PASSWORD, MYSQLI_DATABASE);
+$db->query('SET NAMES "utf8"');
+
+$url = $db->real_escape_string($url);
 
 $result = $db->query('SELECT `slug` FROM `redirect` WHERE `url` = "' . $url . '" LIMIT 1');
 if ($result && $result->num_rows > 0) { // If there’s already a short URL for this URL
