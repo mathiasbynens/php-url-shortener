@@ -15,13 +15,9 @@ if (isset($_GET['slug'])) {
  $db = new mysqli(MYSQLI_HOST, MYSQLI_USER, MYSQLI_PASSWORD, MYSQLI_DATABASE);
  $db->query('SET NAMES "utf8"');
  $slug = $db->real_escape_string($slug);
- $result = $db->query('SELECT `url` FROM `redirect` WHERE `slug` = "' . $slug . '"');
- if ($result && $result->num_rows > 0) {
-  while ($item = $result->fetch_object()) {
-   if ($db->query('UPDATE `redirect` SET `hits` = `hits` + 1 WHERE `slug` = "' . $slug . '"')) {
-    redirect($item->url);
-   }
-  }
+ $result = $db->query('SELECT `url` FROM `redirect` WHERE `slug` = "' . $db->real_escape_string($slug) . '"');
+ if ($result && $result->num_rows > 0 && $db->query('UPDATE `redirect` SET `hits` = `hits` + 1 WHERE `slug` = "' . $db->real_escape_string($slug) . '"')) {
+  redirect($result->fetch_object()->url);
  } else {
   redirect(DEFAULT_URL . $_SERVER['REQUEST_URI']);
  }
