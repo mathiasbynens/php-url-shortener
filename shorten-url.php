@@ -38,13 +38,11 @@ if ($result && $result->num_rows > 0) { // If there’s already a short URL for 
 } else {
  $result = $db->query('SELECT `slug`, `url` FROM `redirect` ORDER BY `date` DESC LIMIT 1');
  if ($result && $result->num_rows > 0) {
-  while ($item = $result->fetch_object()) {
-   $slug = getNextShortURL($item->slug);
-   if ($url !== $item->url && $db->query('INSERT INTO `redirect` (`slug`, `url`, `date`, `hits`) VALUES ("' . $slug . '", "' . $url . '", NOW(), 0)')) {
-    header('HTTP/1.1 201 Created');
-    echo SHORT_URL . $slug;
-    $db->query('OPTIMIZE TABLE `redirect`');
-   }
+  $slug = getNextShortURL($result->fetch_object()->slug);
+  if ($db->query('INSERT INTO `redirect` (`slug`, `url`, `date`, `hits`) VALUES ("' . $slug . '", "' . $url . '", NOW(), 0)')) {
+   header('HTTP/1.1 201 Created');
+   echo SHORT_URL . $slug;
+   $db->query('OPTIMIZE TABLE `redirect`');
   }
  }
 }
