@@ -4,7 +4,7 @@ require('config.php');
 
 header('Content-Type: text/plain;charset=UTF-8');
 
-$url = urldecode(trim($_GET['url']));
+$url = isset($_GET['url']) ? urldecode(trim($_GET['url'])) : '';
 
 if (in_array($url, array('', 'about:blank', 'undefined', 'http://localhost/'))) {
  die('Enter a URL.');
