@@ -7,19 +7,19 @@ $redirectDestination = DEFAULT_URL . '/';
 if (isset($_GET['slug'])) {
 
 	$slug = preg_replace('/[^a-z0-9]/si', '', $_GET['slug']);
-	if (is_numeric ($slug) && strlen ($slug) > 8) {
+	if (is_numeric($slug) && strlen($slug) > 8) {
 		$redirectDestination = 'http://twitter.com/' . TWITTER_USERNAME . '/status/' . $slug;
 
 	} else {
 
-		$db = new MySQLi(MYSQLI_HOST, MYSQLI_USER, MYSQLI_PASSWORD, MYSQLI_DATABASE);
+		$db = new MySQLi(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE);
 		$db->set_charset('utf8');
 
 		$escapedSlug = $db->real_escape_string($slug);
 		$redirectResult = $db->query('SELECT url FROM redirect WHERE slug = "' . $escapedSlug . '"');
 
-		if ($redirectResult !== false && $redirectResult->num_rows != 0) {
-			$db->query ('UPDATE redirect SET hits = hits + 1 WHERE slug = "' . $escapedSlug . '"');
+		if ($redirectResult !== false && $redirectResult->num_rows > 0) {
+			$db->query('UPDATE redirect SET hits = hits + 1 WHERE slug = "' . $escapedSlug . '"');
 			$redirectDestination = $redirectResult->fetch_object()->url;
 		} else {
 			$redirectDestination = DEFAULT_URL . $_SERVER['REQUEST_URI'];
@@ -41,5 +41,5 @@ header('Location: ' . $redirectDestination, null, 301);
 <script>
 	try {
 		document.location.href = '<?php echo $redirectDestination; ?>';
-	} catch (e) {}
+	} catch(e) {}
 </script>
