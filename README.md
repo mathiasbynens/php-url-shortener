@@ -22,10 +22,20 @@
 
 ### Prompt
 
-    javascript:(function(){var%20q=prompt('URL:');if(q){document.location='http://yourshortener.ext/shorten?url='+encodeURIComponent(q)}})();
+``` js
+javascript:(function(){var%20q=prompt('URL:');if(q){document.location='http://yourshortener.ext/shorten?url='+encodeURIComponent(q)}})();
+```
 
 ### Shorten this URL
 
-    javascript:(function(){document.location='http://yourshortener.ext/shorten?url='+encodeURIComponent(location.href)})();
+``` js
+javascript:(function(){document.location='http://yourshortener.ext/shorten?url='+encodeURIComponent(location.href)})();
+````
 
-_— [Mathias](http://mathiasbynens.be/)_
+## Author
+
+* [Mathias Bynens](http://mathiasbynens.be/)
+
+## Contributors
+
+* [Peter Beverloo](http://peter.sh/)
