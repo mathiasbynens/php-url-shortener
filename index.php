@@ -33,13 +33,4 @@ if (isset($_GET['slug'])) {
 header('Location: ' . $url, null, 301);
 
 ?>
-<!DOCTYPE html>
-<meta charset=utf-8>
-<title>Redirecting…</title>
-<meta http-equiv=refresh content="0; URL=<?php echo $url; ?>">
-<a href="<?php echo $url; ?>">Click here to continue to <?php echo $url; ?>…</a>
-<script>
-	try {
-		document.location.href = '<?php echo $url; ?>';
-	} catch(e) {}
-</script>
+<meta http-equiv=refresh content="0; URL=<?php echo $url; ?>"><a href="<?php echo $url; ?>">Continue</a><script>location.href='<?php echo $url; ?>'</script>
