@@ -23,13 +23,13 @@
 ### Prompt
 
 ``` js
-javascript:(function(){var%20q=prompt('URL:');if(q){document.location='http://yourshortener.ext/shorten?url='+encodeURIComponent(q)}})();
+javascript:(function(){var%20q=prompt('URL:');if(q){document.location='http://yourshortener.ext/shorten?url='+encodeURIComponent(q)}}());
 ```
 
 ### Shorten this URL
 
 ``` js
-javascript:(function(){document.location='http://yourshortener.ext/shorten?url='+encodeURIComponent(location.href)})();
+javascript:(function(){document.location='http://yourshortener.ext/shorten?url='+encodeURIComponent(location.href)}());
 ````
 
 ## Author
