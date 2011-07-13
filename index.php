@@ -8,7 +8,9 @@ if (isset($_GET['slug'])) {
 
 	$slug = $_GET['slug'];
 
-	if (' ' == $slug) { // +
+	if ('@' == $slug) {
+		$url = 'http://twitter.com/' . TWITTER_USERNAME;
+	} else if (' ' == $slug) { // +
 		$url = 'https://plus.google.com/u/0/' . GOOGLE_PLUS_ID . '/posts';
 	} else {
 
