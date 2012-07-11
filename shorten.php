@@ -36,7 +36,7 @@ $result = $db->query('SELECT slug FROM redirect WHERE url = "' . $url . '" LIMIT
 if ($result && $result->num_rows > 0) { // If there’s already a short URL for this URL
 	die(SHORT_URL . $result->fetch_object()->slug);
 } else {
-	$result = $db->query('SELECT slug, url FROM redirect ORDER BY date DESC LIMIT 1');
+	$result = $db->query('SELECT slug, url FROM redirect ORDER BY date DESC, slug DESC LIMIT 1');
 	if ($result && $result->num_rows > 0) {
 		$slug = getNextShortURL($result->fetch_object()->slug);
 		if ($db->query('INSERT INTO redirect (slug, url, date, hits) VALUES ("' . $slug . '", "' . $url . '", NOW(), 0)')) {
