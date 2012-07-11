@@ -41,3 +41,4 @@ javascript:(function(){document.location='http://yourshortener.ext/shorten?url='
 ## Contributors
 
 * [Peter Beverloo](http://peter.sh/)
+* [Tomislav Biscan](https://github.com/B-Scan)
