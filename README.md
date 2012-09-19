@@ -4,7 +4,7 @@
 
 1. Download the source code as located within this repository, and upload it to your web server.
 2. Use `database.sql` to create the `redirect` table in a database of choice.
-3. Edit `config.php` and enter your database credentials.
+3. Edit `config.php` and enter your database credentials, and configure other information for the application.
 
 ## Features
 
@@ -42,3 +42,4 @@ javascript:(function(){document.location='http://yourshortener.ext/shorten?url='
 
 * [Peter Beverloo](http://peter.sh/)
 * [Tomislav Biscan](https://github.com/B-Scan)
+* [Jonathan Libby](http://www.thelibbster.com)(http://github.com/TheLibbster)
