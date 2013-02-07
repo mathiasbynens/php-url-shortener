@@ -34,6 +34,10 @@ javascript:(function(){var%20q=prompt('URL:');if(q){document.location='http://yo
 javascript:(function(){document.location='http://yourshortener.ext/shorten?url='+encodeURIComponent(location.href)}());
 ````
 
+## License
+
+This plugin is dual licensed under the MIT and GPL licenses. Take your pick.
+
 ## Author
 
 * [Mathias Bynens](http://mathiasbynens.be/)
@@ -42,3 +46,4 @@ javascript:(function(){document.location='http://yourshortener.ext/shorten?url='
 
 * [Peter Beverloo](http://peter.sh/)
 * [Tomislav Biscan](https://github.com/B-Scan)
+
