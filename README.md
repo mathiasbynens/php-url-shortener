@@ -42,4 +42,4 @@ javascript:(function(){document.location='http://yourshortener.ext/shorten?url='
 
 * [Peter Beverloo](http://peter.sh/)
 * [Tomislav Biscan](https://github.com/B-Scan)
-* [Jonathan Libby](http://www.thelibbster.com)(http://github.com/TheLibbster)
+* [Jonathan Libby](http://www.thelibbster.com) (http://github.com/TheLibbster)
