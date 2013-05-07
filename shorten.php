@@ -28,7 +28,7 @@ function getNextShortURL($s) {
 }
 
 $db = new mysqli(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE);
-$db->set_charset('utf8');
+$db->set_charset('utf8mb4');
 
 $url = $db->real_escape_string($url);
 

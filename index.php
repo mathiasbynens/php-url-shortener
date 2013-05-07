@@ -21,7 +21,7 @@ if (isset($_GET['slug'])) {
 		} else {
 
 			$db = new MySQLi(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE);
-			$db->set_charset('utf8');
+			$db->set_charset('utf8mb4');
 
 			$escapedSlug = $db->real_escape_string($slug);
 			$redirectResult = $db->query('SELECT url FROM redirect WHERE slug = "' . $escapedSlug . '"');
