@@ -36,7 +36,7 @@ javascript:(function(){document.location='http://yourshortener.ext/shorten?url='
 
 ## License
 
-This plugin is dual licensed under the MIT and GPL licenses. Take your pick.
+This script is available under the MIT license.
 
 ## Author
 
