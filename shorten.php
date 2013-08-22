@@ -11,7 +11,7 @@ if (in_array($url, array('', 'about:blank', 'undefined', 'http://localhost/'))) 
 }
 
 // If the URL is already a short URL on this domain, don’t re-shorten it
-if (strpos($url, SHORT_URL) == 0) {
+if (strpos($url, SHORT_URL) === 0) {
 	die($url);
 }
 
