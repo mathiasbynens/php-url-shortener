@@ -1,5 +1,7 @@
 # Simple PHP URL shortener
 
+Requires PHP ≥ 5.4.0 or higher.
+
 ## Installation
 
 1. Download the source code as located within this repository, and upload it to your web server.
