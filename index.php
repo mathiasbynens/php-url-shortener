@@ -9,7 +9,7 @@ if (isset($_GET['slug'])) {
 	$slug = $_GET['slug'];
 
 	if ('@' == $slug) {
-		$url = 'http://twitter.com/' . TWITTER_USERNAME;
+		$url = 'https://twitter.com/' . TWITTER_USERNAME;
 	} else if (' ' == $slug) { // +
 		$url = 'https://plus.google.com/u/0/' . GOOGLE_PLUS_ID . '/posts';
 	} else {
@@ -17,7 +17,7 @@ if (isset($_GET['slug'])) {
 		$slug = preg_replace('/[^a-z0-9]/si', '', $slug);
 
 		if (is_numeric($slug) && strlen($slug) > 8) {
-			$url = 'http://twitter.com/' . TWITTER_USERNAME . '/status/' . $slug;
+			$url = 'https://twitter.com/' . TWITTER_USERNAME . '/status/' . $slug;
 		} else {
 
 			$db = new MySQLi(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE);
