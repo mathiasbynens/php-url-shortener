@@ -7,6 +7,7 @@ Requires PHP ≥ 5.4.0 or higher.
 1. Download the source code as located within this repository, and upload it to your web server.
 2. Use `database.sql` to create the `redirect` table in a database of choice. Do *not* delete the ```INSERT``` statement in [line 10](https://github.com/mathiasbynens/php-url-shortener/blob/master/database.sql#L10) as it is needed to initialize the database.
 3. Edit `config.php` and enter your database credentials.
+4. For additional *security through obscurity™* consider renaming ```shorten.php``` to a secret file name of your choosing and then adapt the ```.htaccess``` file ([line 3](https://github.com/mathiasbynens/php-url-shortener/blob/master/.htaccess#L3)) accordingly if you do not want to open your shortener to everyone.
 
 ## Features
 
