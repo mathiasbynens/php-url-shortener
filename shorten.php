@@ -9,6 +9,7 @@ if (file_exists('config.php')) {
 header('Content-Type: text/plain;charset=UTF-8');
 
 $url = isset($_GET['url']) ? urldecode(trim($_GET['url'])) : '';
+$customSlug = isset($_GET['slug']) ? trim($_GET['slug']) : '';
 
 if (in_array($url, ['', 'about:blank', 'undefined', 'http://localhost/'])) {
     die('Enter a URL.');
@@ -44,12 +45,20 @@ $db->set_charset('utf8mb4');
 $url = $db->real_escape_string($url);
 
 $result = $db->query('SELECT slug FROM redirect WHERE url = "' . $url . '" LIMIT 1');
+if (!empty($customSlug)) {
+    $resultSlug = $db->query('SELECT slug FROM redirect WHERE slug = "' . $customSlug . '" LIMIT 1');
+
+    if ($resultSlug && $resultSlug->num_rows > 0) { // If there’s already a short URL for this URL
+        die(SHORT_URL . $result->fetch_object()->slug);
+    }
+}
 if ($result && $result->num_rows > 0) { // If there’s already a short URL for this URL
     die(SHORT_URL . $result->fetch_object()->slug);
 } else {
     $result = $db->query('SELECT slug, url FROM redirect ORDER BY date DESC, slug DESC LIMIT 1');
     if ($result && $result->num_rows > 0) {
-        $slug = getNextShortURL($result->fetch_object()->slug);
+        $slug = !empty($customSlug) ? $customSlug : getNextShortURL($result->fetch_object()->slug);
+
         if ($db->query('INSERT INTO redirect (slug, url, date, hits) VALUES ("' . $slug . '", "' . $url . '", NOW(), 0)')) {
             header('HTTP/1.1 201 Created');
             echo SHORT_URL . $slug;
